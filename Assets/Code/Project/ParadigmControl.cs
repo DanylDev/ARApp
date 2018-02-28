@@ -7,6 +7,7 @@ namespace Paradigm
     public class ParadigmControl : MonoBehaviour
     {
         public static ParadigmControl Instance;
+        public GameObject city;
 
         public enum TState
         {
@@ -27,13 +28,11 @@ namespace Paradigm
 
         private void Start()
         {
-            CellToPlay();
+            ResetTriggres();
         }
 
         private void Update()
         {
-            CoreUpdate();
-
             if (Input.GetKeyDown(KeyCode.G))
             {
                 CellToPlay();
@@ -45,22 +44,11 @@ namespace Paradigm
             }
         }
 
-        private void CoreUpdate()
-        {
-            switch(typeState)
-            {
-                case TState.Menu:
-                    break;
-
-                case TState.Play:
-                    break;
-            }
-        }
-
         public void CellToPlay()
         {
             typeState = TState.Play;
             NextTrigger();
+            print("PusiSSS int " + curCounter);
         }
 
         private void SetTriggres(int index)
@@ -72,18 +60,23 @@ namespace Paradigm
                 if (i == index)
                 {
                     listTriggers[i].gameObject.SetActive(true);
+                    print("Включили " + listTriggers[i].transform.name);
                 }
-                else { listTriggers[i].gameObject.SetActive(false); }
+                else
+                {
+                    listTriggers[i].gameObject.SetActive(false);
+                    print("Выключили " + listTriggers[i].transform.name);
+                }
             }
 
             if (curCounter >= listTriggers.Count)
             {
                 startGameTrigger.gameObject.SetActive(true);
             }
-            else
+            /*else
             {
                 startGameTrigger.gameObject.SetActive(false);
-            }
+            }*/
         }
 
         public void StopGame()
@@ -108,6 +101,7 @@ namespace Paradigm
         public void ResetTriggres()
         {
             SetTriggres(listTriggers.Count + 1);
+            curCounter = 0;
         }
     }
 }

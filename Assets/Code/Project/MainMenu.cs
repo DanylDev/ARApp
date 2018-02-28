@@ -5,8 +5,10 @@ using Paradigm;
 
 public class MainMenu : WindowControll
 {
-    public void Play()
+    public CoreMainMenu coreMainMenu;
+
+    public void Group()
     {
-        GameManager.Instance.StartGame();
+        coreMainMenu.SwithcWindow(1);
     }
 }

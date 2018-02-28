@@ -11,6 +11,7 @@ namespace Paradigm
         public DateTime startTime;
         public DateTime endTime;
         public TimeSpan result;
+        public TimeSpan awaySecond;
         public bool start = false;
     }
 
@@ -49,6 +50,11 @@ namespace Paradigm
             listDataTime.Add(newData);
 
             return (short)(listDataTime.Count - 1);
+        }
+
+        public void AwaeSecond(int index, int second)
+        {
+            listDataTime[index].awaySecond -= new TimeSpan(0, 0, second);
         }
 
         public void RefreshTimer(short index, int delaySecond)
@@ -100,7 +106,7 @@ namespace Paradigm
             {
                 if (time.start && DateTime.Now <= time.endTime)
                 {
-                    time.result = time.endTime - DateTime.Now;
+                    time.result = (time.endTime + time.awaySecond) - DateTime.Now;
                 }
                 else
                 {

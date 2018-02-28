@@ -22,7 +22,7 @@ namespace Paradigm
             }
         }
 
-        protected void SetTimeString(TextMeshProUGUI txt, int _seconds)
+        protected void SetTimeString(Text txt, int _seconds)
         {
             if (txt)
             {

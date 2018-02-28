@@ -10,6 +10,7 @@ namespace Paradigm
         public bool initGroud = false;
         private bool groundStart = false;
         public GameObject prefabGround;
+        public GameObject currentGround;
 
         public DesignConstrctor designerContructor;
 
@@ -73,14 +74,14 @@ namespace Paradigm
         {
             if (initGroud == false || groundStart == true) { return; }
 
-            CoreAppControl.Instance.DialogApp.CellWindow(WindowControll.TTypeWindow.Gameplay);
+            //CoreAppControl.Instance.DialogApp.CellWindow(WindowControll.TTypeWindow.Gameplay);
 
-            var getZone = CoreAR.Instance.InstantiateObj(prefabGround);
+            currentGround = CoreAR.Instance.InstantiateObj(prefabGround);
 
             //getZone.transform.rotation = hit.Pose.rotation;
-            getZone.transform.rotation = Quaternion.Euler(0.0f, getZone.transform.rotation.eulerAngles.y, getZone.transform.rotation.z);
+            currentGround.transform.rotation = Quaternion.Euler(0.0f, currentGround.transform.rotation.eulerAngles.y, currentGround.transform.rotation.z);
 
-            Vector3 newPos = getZone.transform.position;
+            Vector3 newPos = currentGround.transform.position;
 
             //newPos.x = firstCamera.position.x + (ParadigmControl.Instance.transform.position.x - ParadigmControl.Instance.StartPoint.position.x);
             //newPos.z = firstCamera.position.z + (ParadigmControl.Instance.transform.position.z - ParadigmControl.Instance.StartPoint.position.z);
@@ -88,8 +89,8 @@ namespace Paradigm
             newPos.x = designerContructor.midleWorldPoint.x;
             newPos.z = designerContructor.midleWorldPoint.z;
 
-            getZone.transform.position = newPos;
-
+            currentGround.transform.position = newPos;
+            currentGround.GetComponent<ParadigmControl>().city.SetActive(false);
             groundStart = true;
         }
     }

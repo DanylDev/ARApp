@@ -11,6 +11,7 @@ namespace Paradigm
         public CoreProfile coreProfile;
         public CoreWorldTime coreWorldTime;
         public CorePlayerPrefs corePlayerPrefs;
+        public CoreLeaderboard coreLeaderboard;
 
         //Public
 
@@ -20,6 +21,7 @@ namespace Paradigm
             coreProfile = new CoreProfile();
             coreWorldTime = new CoreWorldTime();
             corePlayerPrefs = new CorePlayerPrefs();
+            coreLeaderboard = new CoreLeaderboard();
 
             Load();
         }

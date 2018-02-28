@@ -8,10 +8,11 @@ public class FinishTrigger : MonoBehaviour
     public enum TType
     {
         Finish,
-        RefreshGame,
+        StartGame,
         Next
     }
 
+    public string name;
     public BoxCollider bCollider;
     public MeshRenderer mRenderer;
     public ParadigmControl paradigmControl;
@@ -26,11 +27,13 @@ public class FinishTrigger : MonoBehaviour
             {
                 case TType.Finish:
                     GameManager.Instance.BackGame();
-                    paradigmControl.ResetTriggres();
+                    paradigmControl.StopGame();
                     return;
 
-                case TType.RefreshGame:
-                    GameManager.Instance.StopGame();
+                case TType.StartGame:
+                    paradigmControl.NextTrigger();
+                    GameManager.Instance.StartGame();
+                    //CoreAppControl.Instance.DialogApp.GetWindow(WindowControll.TTypeWindow.Gameplay).GetComponent<GameplayUI>().InitTimer();
                     return;
 
                 case TType.Next:

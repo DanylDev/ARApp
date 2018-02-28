@@ -11,20 +11,10 @@ namespace Paradigm
         public enum TTypeWindow
         {
             MainMenu,
-            ShopSkin,
-            ShopHome,
+            PreStart,
             Gameplay,
-            Pause,
-            PreEnd,
-            End,
-            SplashLoad,
-            Settings,
-            BuySkin,
-            Manual,
-            Bank,
-            Skills,
-            ARLoading,
-            PreStart
+            Leadboard,
+            SplashLoad
         }
 
         public enum TTypePriority

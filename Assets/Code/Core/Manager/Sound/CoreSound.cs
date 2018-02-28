@@ -44,8 +44,6 @@ namespace Paradigm
 
         public void PlayOneShot(TTypeSound typeSound)
         {
-            if (!Globals.Instance.coreProfile.soundMode) { return; }
-
             GameObject newSound = Instantiate(exampleSound, transform);
             AudioSource aSource = newSound.GetComponent<AudioSource>();
 
@@ -68,8 +66,6 @@ namespace Paradigm
 
         public void PlayOneShot(TTypeSound typeSound, TType type)
         {
-            if (!Globals.Instance.coreProfile.musicMode) { return; }
-
             GameObject newSound = Instantiate(exampleSound, transform);
             AudioSource aSource = newSound.GetComponent<AudioSource>();
 

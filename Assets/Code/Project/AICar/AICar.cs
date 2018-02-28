@@ -129,7 +129,7 @@ public class AICar : MonoBehaviour
 
         if (getLight)
         {
-            if(getLight.traffictLight.typeLight == TrafficLight.DataTrafficLight.TTypeLight.Green)
+            if(getLight.traffictLight.typeLight == TrafficLight.DataTrafficLight.TTypeLight.Red)
             {
                 return false;
             }
@@ -137,7 +137,7 @@ public class AICar : MonoBehaviour
 
         for(int i=0; i<listCar.Count; i++)
         {
-            if(Vector3.Distance(localTransform.position, listCar[i].transform.position) < 3f && Vector3.Angle(listCar[i].transform.position - localTransform.position, localTransform.forward) < 60)
+            if(Vector3.Distance(localTransform.position, listCar[i].transform.position) < 5f && Vector3.Angle(listCar[i].transform.position - localTransform.position, localTransform.forward) < 60)
             {
                 return false;
             }

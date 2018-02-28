@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c30e116871e0c04eb87c4f3bbb6cbca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TypeWindow: 13
+  TypeWindow: 4
   TypePriority: 0
   InitState: 0
   findCameraToCanvas: 0

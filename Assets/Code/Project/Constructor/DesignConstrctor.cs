@@ -30,6 +30,8 @@ public class DesignConstrctor : MonoBehaviour
 
     public void Initialization()
     {
+        if (fixInit) { return; }
+
         typeDesign = TDesign.Run;
 
         currentPoint.gameObject.SetActive(true);
@@ -197,6 +199,7 @@ public class DesignConstrctor : MonoBehaviour
 
             fixInit = true;
             typeDesign = TDesign.Stop;
+            CoreAppControl.Instance.DialogApp.CellWindow(WindowControll.TTypeWindow.PreStart);
         }
     }
 }
